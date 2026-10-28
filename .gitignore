@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.DS_Store
+*.log
+*.partial
+model_export.zip
+gesture_session_log.json
+.env
+.env.*
+models/
