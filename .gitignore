@@ -8,3 +8,5 @@ gesture_session_log.json
 .env
 .env.*
 models/
+
+live_test/runs/
