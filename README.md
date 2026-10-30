@@ -66,7 +66,7 @@ macOS Accessibility permission for VS Code or Terminal is required for simulated
 
 The original study compares a small CNN, MobileNetV2 and MobileNetV2 with augmentation, using 4,000 crops and person-disjoint splits. MobileNetV2 mean test accuracy was 93.68% across two seeds. The deployable seed-42 checkpoint was selected by validation loss, not test accuracy. Its score gate was selected on validation data only.
 
-Test accuracy on annotated crops is not live-webcam command accuracy. Unknown objects may receive high scores. The neutral-hand class does not cover all backgrounds. Hold logic reduces brief activations but cannot guarantee no false commands. A separate live study is still needed. See `Touchless_Presentation_Control.ipynb` for the full experiment.
+Test accuracy on annotated crops is not live-webcam command accuracy. Unknown objects may receive high scores. The neutral-hand class does not cover all backgrounds. Hold logic reduces brief activations but cannot guarantee no false commands. An exploratory live session was completed on 30 October 2026; broader testing is still needed. See `Touchless_Presentation_Control.ipynb` for the full experiment.
 
 ## Data/model attribution
 
@@ -84,3 +84,25 @@ Downscaled HaGRID sample by Christian Mills: https://huggingface.co/datasets/cj-
 ![Confusion matrices](confusion_matrices.png)
 
 The scores above are held-out hand-crop results, not live camera accuracy.
+
+## Guided live evaluation (30 October 2026)
+
+One participant completed 50 prompted trials (10 per class, approximately four seconds each) and three rejection intervals. All 53 were retained.
+
+| Evaluation | Result | Meaning |
+|---|---:|---|
+| Held-out images | 93.68% | Mean image accuracy across two MobileNetV2 seeds |
+| Guided webcam recognition | 43/50 (86%) | Correct modal class within each prompted trial |
+| Controller events | 33/50 (66%) | Exactly one matching event, or zero for neutral |
+
+These measure different inputs and aggregation procedures; their differences are not a controlled estimate of deployment loss. The rejection intervals generated **7 unwanted events in 50.4 seconds**. Eight active-gesture trials emitted multiple events. A correct majority class therefore did not guarantee reliable command emission.
+
+See [trial summary records](live_test/evidence/2026-10-30/) and the [evaluation guide](live_test/README.md). No camera frames or videos were saved. Poses were participant-instructed, not independently verified. External key control was off, and events do not prove actual slide movement. Hand-presence detection, unknown-input rejection, and stronger re-arm rules remain proposed improvements, not implemented or validated fixes.
+
+Run a new evaluation from the repository root after installation:
+
+```sh
+.venv/bin/python live_test/guided_test.py
+```
+
+New runs are saved separately under `live_test/runs/`; they do not overwrite the archived session. This launcher is adapted to the published repository layout. The original script is retained alongside the historical results. The full per-prediction JSON remains in the separately held Drive evidence archive and is not published here. The trained model and command-filter behavior used for the reported session are unchanged.
