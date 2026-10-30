@@ -1,0 +1,64 @@
+{
+  "complete": true,
+  "known_trials": 50,
+  "classification_correct": 43,
+  "command_criterion_passed": 33,
+  "by_class": {
+    "like": {
+      "attempts": 10,
+      "classification_correct": 9,
+      "command_criterion_passed": 9
+    },
+    "palm": {
+      "attempts": 10,
+      "classification_correct": 10,
+      "command_criterion_passed": 5
+    },
+    "fist": {
+      "attempts": 10,
+      "classification_correct": 8,
+      "command_criterion_passed": 6
+    },
+    "peace": {
+      "attempts": 10,
+      "classification_correct": 9,
+      "command_criterion_passed": 7
+    },
+    "no_gesture": {
+      "attempts": 10,
+      "classification_correct": 7,
+      "command_criterion_passed": 6
+    }
+  },
+  "rejection_intervals": [
+    {
+      "condition": "empty_frame",
+      "duration_seconds": 10.101405917084776,
+      "unwanted_commands": 1
+    },
+    {
+      "condition": "natural_movement",
+      "duration_seconds": 20.178581540938467,
+      "unwanted_commands": 1
+    },
+    {
+      "condition": "unsupported_gesture",
+      "duration_seconds": 20.117947124992497,
+      "unwanted_commands": 5
+    }
+  ],
+  "rejection_total_seconds": 50.39793458301574,
+  "rejection_total_commands": 7,
+  "rejection_commands_per_minute": 8.33367485145991,
+  "multiple_command_trials": [
+    12,
+    14,
+    15,
+    18,
+    20,
+    24,
+    32,
+    33
+  ],
+  "command_metric_scope": "Controller event criterion, not verified slide navigation or external slideshow performance. Exactly one correct event for command gestures and zero for neutral. Ground truth is participant instructed, not independently verified. One participant/session."
+}
