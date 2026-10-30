@@ -105,4 +105,4 @@ Run a new evaluation from the repository root after installation:
 .venv/bin/python live_test/guided_test.py
 ```
 
-New runs are saved separately under `live_test/runs/`; they do not overwrite the archived session. This launcher is adapted to the published repository layout. The original script is retained alongside the historical results. The full per-prediction JSON remains in the separately held Drive evidence archive and is not published here. The trained model and command-filter behavior used for the reported session are unchanged.
+New runs are saved separately under `live_test/runs/`; they do not overwrite the archived session. This launcher is adapted to the published repository layout. The original script is retained alongside the historical results. The full per-prediction JSON is published in live_test/evidence/2026-10-30/live_test_results.json with the participant’s approval. The trained model and command-filter behavior used for the reported session are unchanged.
